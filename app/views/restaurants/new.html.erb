@@ -1,0 +1,11 @@
+<div class="row d-flex justify-content-center">
+  <div class="col-5">
+    <%= simple_form_for(@restaurant) do |r| %>
+      <%= r.input :name %>
+      <%= r.input :address %>
+      <%= r.input :phone_number %>
+      <%= r.input :category %>
+      <%= r.submit "Add!" %>
+    <% end %>
+  </div>
+</div>

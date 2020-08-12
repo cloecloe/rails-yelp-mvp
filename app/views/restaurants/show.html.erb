@@ -1,0 +1,29 @@
+<div class="container">
+  <h1><%= @restaurant.name %></h1>
+
+  <div class="elements">
+    <p><strong>Address:</strong> <%= @restaurant.address %></p>
+    <p><strong>Phone number:</strong> <%= @restaurant.phone_number %></p>
+    <p><strong>Category:</strong> <%= @restaurant.category %></p>
+    <p><strong>Reviews:</strong></p>
+    <% @reviews.each do |review| %>
+      <%= review.content %> - <% (review.rating).times do |r| %>
+          <i class="fas fa-star text-primary"></i>
+        <% end %>
+        <% (5 - (review.rating)).times do |r| %>
+          <i class="far fa-star text-primary"></i>
+        <% end %>
+      <br>
+    <% end %>
+  </div>
+
+    <div class="row d-flex justify-content-center">
+    <div class="col-5">
+      <%= simple_form_for [@restaurant, @review] do |r| %>
+        <%= r.input :content %>
+        <%= r.input :rating %>
+        <%= r.submit "Add!", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
